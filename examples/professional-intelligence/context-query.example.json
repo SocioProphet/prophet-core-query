@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "v0.1",
+  "queryId": "query://pi-demo-0001/context",
+  "workroomRef": "workroom://workroom-demo-0001",
+  "playbookId": "client-opportunity-review",
+  "issuedBy": "agent://professional-intelligence/opportunity-review-agent",
+  "issuedAt": "2026-04-30T15:20:00Z",
+  "inputs": {
+    "entityRefs": [
+      "entity://organization/org-demo-0001"
+    ],
+    "relationshipRefs": [
+      "relationship://demo/org-demo-0001/internal-sponsor"
+    ],
+    "searchPacketRefs": [
+      "search-packet://pi-demo-0001"
+    ],
+    "contextPackRefs": [
+      "context-pack://pi-demo-0001"
+    ],
+    "policyDecisionRefs": [
+      "policy-decision://ppd-allow-0001",
+      "policy-decision://ppd-review-0001"
+    ],
+    "obligationRefs": [
+      "obligation://obl-ai-use-demo-0001",
+      "obligation://obl-approval-demo-0001"
+    ],
+    "evidenceRefs": [
+      "evidence://sherlock/pi-demo-0001/search-packet",
+      "evidence://memory/pi-demo-0001/context-pack"
+    ]
+  },
+  "queryPlan": [
+    {
+      "stepId": "resolve-search-context",
+      "source": "sherlock-search",
+      "operation": "read-search-packet",
+      "inputRefs": [
+        "search-packet://pi-demo-0001"
+      ],
+      "outputRef": "context-input://pi-demo-0001/search",
+      "evidenceRequired": true
+    },
+    {
+      "stepId": "resolve-memory-context",
+      "source": "memory-mesh",
+      "operation": "read-context-pack",
+      "inputRefs": [
+        "context-pack://pi-demo-0001"
+      ],
+      "outputRef": "context-input://pi-demo-0001/memory",
+      "evidenceRequired": true
+    },
+    {
+      "stepId": "resolve-policy-context",
+      "source": "policy-fabric",
+      "operation": "read-policy-decisions",
+      "inputRefs": [
+        "policy-decision://ppd-allow-0001",
+        "policy-decision://ppd-review-0001"
+      ],
+      "outputRef": "context-input://pi-demo-0001/policy",
+      "evidenceRequired": true
+    },
+    {
+      "stepId": "resolve-obligation-context",
+      "source": "contractforge",
+      "operation": "read-obligations",
+      "inputRefs": [
+        "obligation://obl-ai-use-demo-0001",
+        "obligation://obl-approval-demo-0001"
+      ],
+      "outputRef": "context-input://pi-demo-0001/obligations",
+      "evidenceRequired": true
+    }
+  ],
+  "outputs": {
+    "contextPackRefs": [
+      "context-pack://pi-demo-0001"
+    ],
+    "workroomRefs": [
+      "workroom://workroom-demo-0001"
+    ],
+    "evidenceRefs": [
+      "evidence://query/pi-demo-0001/context"
+    ]
+  }
+}
