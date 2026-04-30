@@ -1,0 +1,30 @@
+name: professional-intelligence-context-query
+
+on:
+  pull_request:
+    paths:
+      - "schemas/professional-intelligence-context-query.schema.json"
+      - "examples/professional-intelligence/context-query.example.json"
+      - "scripts/validate_professional_intelligence_context_query.py"
+      - ".github/workflows/professional-intelligence-context-query.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "schemas/professional-intelligence-context-query.schema.json"
+      - "examples/professional-intelligence/context-query.example.json"
+      - "scripts/validate_professional_intelligence_context_query.py"
+      - ".github/workflows/professional-intelligence-context-query.yml"
+
+jobs:
+  validate-context-query:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install validation dependency
+        run: python -m pip install jsonschema
+      - name: Validate Professional Intelligence context query
+        run: python scripts/validate_professional_intelligence_context_query.py
