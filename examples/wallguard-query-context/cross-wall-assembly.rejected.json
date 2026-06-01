@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1.0",
+  "record_type": "WallGuardQueryContext",
+  "query_id": "query://client-a/matter-x/context-cross-wall-invalid-001",
+  "workroom_ref": "workroom://client-a/matter-x",
+  "subject_ref": "agent-wall-context://agent-alpha/client-a/matter-x",
+  "active_wall_ref": "wall://client-a/matter-x",
+  "assembly_phase": "pre_context_assembly",
+  "context_pack_refs": ["context-pack://client-b/matter-y/query-invalid-001"],
+  "catalog_visibility_refs": ["catalog-visibility://client-b/matter-y/doc-001"],
+  "retrieval_filter_refs": ["sherlock-retrieval-filter://cross-wall-invalid-001"],
+  "memory_gate_refs": ["memory-gate://cross-wall-invalid-001"],
+  "wall_decision_refs": ["wallguard-decision://cross-wall-query-deny-001"],
+  "assembly_decision": "deny",
+  "reason_code": "cross_wall_denied",
+  "assembled": false,
+  "policy_refs": ["policy-fabric://wallguard.professional-workroom.v0"],
+  "receipt_refs": ["wallguard-receipt://query-context-cross-wall-deny-001"],
+  "evidence_refs": ["SocioProphet/prophet-core-catalog#2", "SocioProphet/sherlock-search#61", "SocioProphet/memory-mesh#33"]
+}
