@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1.0",
+  "record_type": "WallGuardQueryContext",
+  "query_id": "query://client-a/matter-x/context-001",
+  "workroom_ref": "workroom://client-a/matter-x",
+  "subject_ref": "agent-wall-context://agent-alpha/client-a/matter-x",
+  "active_wall_ref": "wall://client-a/matter-x",
+  "assembly_phase": "pre_context_assembly",
+  "context_pack_refs": ["context-pack://client-a/matter-x/query-001"],
+  "catalog_visibility_refs": ["catalog-visibility://client-a/matter-x/doc-001"],
+  "retrieval_filter_refs": ["sherlock-retrieval-filter://same-wall-pre-rank-001"],
+  "memory_gate_refs": ["memory-gate://same-wall-read-001"],
+  "wall_decision_refs": ["wallguard-decision://same-wall-query-allow-001"],
+  "assembly_decision": "assemble",
+  "reason_code": "same_wall_allowed",
+  "assembled": true,
+  "policy_refs": ["policy-fabric://wallguard.professional-workroom.v0"],
+  "receipt_refs": ["wallguard-receipt://query-context-same-wall-001"],
+  "evidence_refs": ["SocioProphet/prophet-core-catalog#2", "SocioProphet/sherlock-search#61", "SocioProphet/memory-mesh#33"]
+}
